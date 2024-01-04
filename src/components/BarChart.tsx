@@ -86,7 +86,7 @@ export default function BarChart() {
     };
   return (
     <div className='p-5 container mx-auto bg-slate-50 my-10 rounded-md shadow-md'>
-      <select className='p-2 shadow-md rounded-md' onChange={(e)=>handleSelect(e.target.value)} defaultValue={changemonth} value={changemonth}>
+        <select className='p-2 shadow-md rounded-md mx-auto flex my-2' onChange={(e)=>handleSelect(e.target.value)} defaultValue={changemonth} value={changemonth}>
             <option value="January">January</option>
             <option value="February">February</option>
             <option value="March">March</option>
@@ -99,7 +99,7 @@ export default function BarChart() {
             <option value="October">October</option>
             <option value="November">November</option>
             <option value="December">December</option>
-          </select>
+        </select>
         <ReactEcharts option={option} />
     </div>
   )

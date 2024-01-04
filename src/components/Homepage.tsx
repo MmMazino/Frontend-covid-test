@@ -25,11 +25,11 @@ function Homepage() {
         {data.loading ? (<p className='text-center'>Loading...</p>) : 
         (
         <div className='flex justify-center gap-5'>
-          <Card title={'จำนวนผู้ป่วยยืนยัน (สะสม)'} number={lastdata.totalCases}/>
-          <Card title={'จำนวนผู้หายป่วย (สะสม)'} number={lastdata.totalRecovered}/>
-          <Card title={'จำนวนผู้เสียชีวิต (สะสม)'} number={lastdata.totalDeaths}/>
-          <Card title={'กำลังรักษา (ปัจจุบัน)'} number={lastdata.currentlyInfectedPatients}/>
-          <Card title={'จำนวนผู้ป่วยที่มีอาการรุนแรง (ปัจจุบัน)'} number={lastdata.currentlySeriousOrCritical}/>
+          <Card title={'จำนวนผู้ป่วยยืนยัน (สะสม)'} number={lastdata.totalCases} color='bg-teal-50'/>
+          <Card title={'จำนวนผู้หายป่วย (สะสม)'} number={lastdata.totalRecovered} color='bg-lime-50'/>
+          <Card title={'จำนวนผู้เสียชีวิต (สะสม)'} number={lastdata.totalDeaths} color='bg-gray-100'/>
+          <Card title={'กำลังรักษา (ปัจจุบัน)'} number={lastdata.currentlyInfectedPatients} color='bg-green-50'/>
+          <Card title={'จำนวนผู้ป่วยที่มีอาการรุนแรง (ปัจจุบัน)'} number={lastdata.currentlySeriousOrCritical} color='bg-red-50'/>
         </div>
         ) }
       </div>

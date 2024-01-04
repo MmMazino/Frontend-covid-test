@@ -6,9 +6,7 @@ const PieChart = () => {
     
     const data = useSelector((state:any)=>state.data)
     const lastdata = data.data[data.data.length - 1]
-
-    console.log(lastdata);
-    
+        
     const totalHospitalPUI  = lastdata?.totalHospitalPUI;
     const totalPrivateHospital  =lastdata?.totalPrivateHospital;
     const totalPublicHospital  = lastdata?.totalPublicHospital;
