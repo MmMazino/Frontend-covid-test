@@ -1,32 +1,63 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-// import ReactEcharts from "echarts-for-react";
+import ReactEcharts from "echarts-for-react";
 
 export default function LineChart() {
 
     const data = useSelector((state:any)=>state.data)
-
-    // const mychart = echarts.init(document.getElementById('linechart'));
+    const x = data.data.map((item:any)=>item.publishdate)
+    const totalCases = data.data.map((item:any)=>item.totalCases)
+    const totalRecovered = data.data.map((item:any)=>item.totalRecovered)
+    const totalDeaths = data.data.map((item:any)=>item.totalDeaths)
     var option = {
+    title: {
+        text: 'LineChart'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['Cases', 'Recovered', 'Deaths']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '2%',
+        containLabel: true
+    },
+    toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
         xAxis: {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            data: x.slice(-data.data.length-1)
         },
         yAxis: {
             type: 'value'
         },
         series: [
             {
-            data: [150, 230, 224, 218, 135, 147, 260],
+            name:"Cases",
+            data: totalCases,
+            type: 'line'
+            },            {
+            name:"Recovered",
+            data: totalRecovered,
+            type: 'line'
+            },            {
+            name:"Deaths",
+            data: totalDeaths,
             type: 'line'
             }
         ]
         };
 
-    //   mychart.setOption(option);
 
   return (
-    <></>
-    // <ReactEcharts option={option} />
+    <div className='p-5 container mx-auto bg-slate-50 my-10 rounded-md shadow-md'>
+        <ReactEcharts option={option} />
+    </div>
   )
 }
